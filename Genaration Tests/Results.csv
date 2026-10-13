@@ -11,7 +11,7 @@ activity_number,AI,time_taken,Accuracy/5,Number_of_failed_attempts,rating_1,rati
 3,Claude,41,5,0,3,2,2
 3,Gemini,15,5,0,4,3,3
 3,Copilot,33,5,0,5,5,4
-4,ChatGPT,71,4,0,4,5,4
+4,ChatGPT,142,,,,,
 4,Claude,,,,,,
-4,Gemini,21,4,0,4,4,4
+4,Gemini,,,,,,
 4,Copilot,

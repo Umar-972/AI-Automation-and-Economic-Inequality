@@ -4,8 +4,7 @@
 
 import matplotlib.pyplot as plt
 import pandas as pd
-from datetime import datetime
-import csv
+from pathlib import Path
 
 #-------------------------
 # Create vars
@@ -17,11 +16,32 @@ unemployment_status : str  = "Unemployed"
 student             : str  = "Student"
 retired             : str  = "Retired"
 consent             : str  = "Yes, I agree"    # The exact answer that counts as giving consent
-consent_given       : int  = 0                 # Counts people who agreed
 
 #-------------------------
 # Subprograms
 #-------------------------
+def failsafe() -> dict[str, Path]:
+
+    # Directory containing this Python script
+    BASE_DIR = Path(__file__).resolve().parent
+
+    # Define input file paths
+    files = {
+        "test": BASE_DIR / "test_data.csv",
+        "annual": BASE_DIR / "Unemployment_rate_anual.csv",
+        "quarterly": BASE_DIR / "Unemployment_rate_quarterly.csv",
+        "monthly": BASE_DIR / "Unemployment_rate_monthly.csv",
+        "historical": BASE_DIR / "Data Files" / "UNRTUKA.csv",
+    }
+
+    # Check that all required files exist
+    for name, file_path in files.items():
+        if not file_path.is_file():
+            raise FileNotFoundError(
+                f"Missing required file '{name}': {file_path}"
+            )
+
+    return files
 
 def to_df(path, consent):
 
@@ -150,25 +170,71 @@ def parse_UNRTUKA_third(file):
 
 if __name__ == "__main__":
     
-    # File paths
-    test_file                           = "C:/Users/umarn/Desktop/EPQ/Data Analysis/test_data.csv"
-    unemployment_data_file_anual        = "C:/Users/umarn/Desktop/EPQ/Data Analysis/Scripts for Graphs/Data Files/Unemployment_rate_anual.csv"
-    unemployment_data_file_quarterly    = "C:/Users/umarn/Desktop/EPQ/Data Analysis/Scripts for Graphs/Data Files/Unemployment_rate_quarterly.csv"
-    unemployment_data_file_monthly      = "C:/Users/umarn/Desktop/EPQ/Data Analysis/Scripts for Graphs/Data Files/Unemployment_rate_monthly.csv"
-    UNRTUKA_1760_2016                   = "C:/Users/umarn/Desktop/EPQ/Data Analysis/Scripts for Graphs/Data Files/UNRTUKA.csv"
+    # Load all file paths with the failsafe func to ensure all files are present and in correct position
+    # Validate paths before processing data
+    files = failsafe()
+
+    # Load survey data
+    df, consent_given, no_consent = to_df(
+        files["test"], consent
+    )
+
+    # Separate respondents by employment status
+    (
+        df_employed,
+        df_unemployed,
+        df_students,
+        df_retireds,
+        pie_val,
+    ) = employed_unemployed(df)
+
+    # Load unemployment statistics
+    (
+        df_unemployment_anual,
+        years,
+        rates_anual,
+        final_5_yr,
+        final_5_rates,
+    ) = parse_unemployed_csv_anual(files["annual"])
+
+    (
+        df_unemployment_quarterly,
+        quarters,
+        rates_quarterly,
+    ) = parse_unemployed_csv_quarterly(files["quarterly"])
+
+    df_unemployment_monthly = (parse_unemployed_csv_monthly(files["monthly"]))
+
+    # Load historical data
+    (
+        df_1760_to_1840,
+        years_60_40,
+        rates_60_40,
+    ) = parse_UNRTUKA_first(files["historical"])
+
+    (
+        df_1870_to_1914,
+        years_70_14,
+        rates_70_14,
+    ) = parse_UNRTUKA_second(files["historical"])
+
+    (
+        df_1950_to_1970,
+        years_50_70,
+        rates_50_70,
+    ) = parse_UNRTUKA_third(files["historical"])
     
-    # Create All DataFrames
-    df, consent_given, no_consent                                           = to_df(test_file, consent) # Turns file into DataFrame
-    df_employed, df_unemployed, df_students, df_retireds, pie_val           = employed_unemployed(df) # Turn main DataFrame into seperate ones for (un)employed
-    df_unemployment_anual, years, rates_anual, final_5_yr, final_5_rates    = parse_unemployed_csv_anual(unemployment_data_file_anual)
-    df_unemployment_quarterly, quarters, rates_quarterly                    = parse_unemployed_csv_quarterly(unemployment_data_file_quarterly)
-    df_1760_to_1840, years_60_40, rates_60_40                               = parse_UNRTUKA_first(UNRTUKA_1760_2016)
-    df_1870_to_1914, years_70_14, rates_70_14                               = parse_UNRTUKA_second(UNRTUKA_1760_2016)
-    df_1950_to_1970, years_50_70, rates_50_70                               = parse_UNRTUKA_third(UNRTUKA_1760_2016)
+
     
     # Calculates Percentages for (un)employed stats
-    employed_percent   = (len(df_employed) / consent_given) * 100
-    unemployed_percent = (len(df_unemployed) / consent_given) * 100
+    if consent_given == 0:
+        raise ValueError(
+            "Cannot calculate respondent percentages: "
+        "no valid consent responses were recorded."
+    )
+
+    employed_percent   = len(df_employed) / consent_given * 100
+    unemployed_percent = len(df_unemployed) / consent_given * 100
 
     #-------------------------
     # Show All Figures 
@@ -247,4 +313,3 @@ if __name__ == "__main__":
     # plt.savefig("Data Analysis/Graphs/Fig4c.png", dpi=300, bbox_inches="tight")
     # plt.show()
     # plt.close()
-    

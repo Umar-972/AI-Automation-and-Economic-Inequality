@@ -1,24 +1,14 @@
-Results
-Promt: "In Python, create me a modern Weather app that connects to Open-Meteo.
-        Allow the user to input a City they want to search
-        Allow the user to switch between preset themes
-        Use FastAPI, Matplotlib, CustomTKInter, DateTime and any other libraries that you may need 
-        Ensure fast connection to Open-Metro
-        Ensure the GUI is fullscreen when it is opened
-        Give me this in a downloadable ZIP folder that contains backend.py, main.py, requirements.txt, and a README.md clearly outlining the structure of the app"
+Promt:
+Build a full-stack financial analytics platform called QuantChronicle using Python, FastAPI, 
+PostgreSQL, SQLAlchemy, Pandas, NumPy, Scikit-Learn, Matplotlib, and Python's datetime module. 
+Users can create accounts, track financial transactions, and manage future events. 
+The application should analyze spending habits, generate summaries, forecast future spending, 
+detect unusual transactions, and create charts through API endpoints. All timestamps should be stored in UTC 
+and correctly converted to the user's timezone.
 
-1) ChatGPT
-See #4/Code/Extracted Folders/ChatGPT/weather_app
-See #4/Code/ZIP Folders/ChatGPT/weather_app
+The platform should include JWT authentication, background jobs for analytics generation, a modern dark-themed 
+dashboard, and a clean, scalable architecture. It should expose REST APIs for transactions, events, analytics, and 
+visualizations. As an advanced feature, implement a simulation mode that predicts a user's future financial position based on 
+recurring income, expenses, and scheduled events. Focus on maintainable code, good architecture, security, testing, and performance.
 
-3) Claude
-See #4/Code/
-
-3) Gemini
-See #4/Code/
-
-4) Copilot
-See #4/Code/
-
-Important notes:
-Gemini isn't able to send a binary .zip for user to download therefore all code has been copy + pasted
+Give me a ZIP file, which contains the program, a README file, and a requirements.txt file.

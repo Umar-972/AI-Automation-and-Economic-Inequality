@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: quantchronicle
+      POSTGRES_USER: quantchronicle
+      POSTGRES_PASSWORD: quantchronicle
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U quantchronicle -d quantchronicle"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  api:
+    build: .
+    environment:
+      DATABASE_URL: postgresql+psycopg://quantchronicle:quantchronicle@db:5432/quantchronicle
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-replace-this-secret-before-production}
+      JWT_ALGORITHM: HS256
+      ACCESS_TOKEN_MINUTES: 60
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  postgres_data:
