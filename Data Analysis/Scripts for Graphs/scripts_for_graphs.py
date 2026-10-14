@@ -312,4 +312,8 @@ if __name__ == "__main__":
     # plt.tight_layout()
     # plt.savefig("Data Analysis/Graphs/Fig4c.png", dpi=300, bbox_inches="tight")
     # plt.show()
+<<<<<<< HEAD
     # plt.close()
+=======
+    # plt.close()
+>>>>>>> 3d588abf2d0e6bf6e0cb7c72441c01679ea9f527
