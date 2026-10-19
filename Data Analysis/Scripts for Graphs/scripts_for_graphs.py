@@ -25,7 +25,7 @@ def failsafe() -> dict[str, Path]:
     # Directory containing this Python script
     BASE_DIR = Path(__file__).resolve().parent
 
-    # Define input file paths
+    # Define all input file paths
     files = {
         "test": BASE_DIR / "test_data.csv",
         "annual": BASE_DIR / "Unemployment_rate_anual.csv",
@@ -37,6 +37,7 @@ def failsafe() -> dict[str, Path]:
     # Check that all required files exist
     for name, file_path in files.items():
         if not file_path.is_file():
+            # Give an error when issue
             raise FileNotFoundError(
                 f"Missing required file '{name}': {file_path}"
             )
@@ -180,59 +181,24 @@ if __name__ == "__main__":
     )
 
     # Separate respondents by employment status
-    (
-        df_employed,
-        df_unemployed,
-        df_students,
-        df_retireds,
-        pie_val,
-    ) = employed_unemployed(df)
+    (df_employed, df_unemployed, df_students, df_retireds, pie_val,) = employed_unemployed(df)
 
     # Load unemployment statistics
-    (
-        df_unemployment_anual,
-        years,
-        rates_anual,
-        final_5_yr,
-        final_5_rates,
-    ) = parse_unemployed_csv_anual(files["annual"])
-
-    (
-        df_unemployment_quarterly,
-        quarters,
-        rates_quarterly,
-    ) = parse_unemployed_csv_quarterly(files["quarterly"])
-
+    (df_unemployment_anual, years, rates_anual, final_5_yr, final_5_rates,) = parse_unemployed_csv_anual(files["annual"])
+    (df_unemployment_quarterly, quarters, rates_quarterly,) = parse_unemployed_csv_quarterly(files["quarterly"])
     df_unemployment_monthly = (parse_unemployed_csv_monthly(files["monthly"]))
 
     # Load historical data
-    (
-        df_1760_to_1840,
-        years_60_40,
-        rates_60_40,
-    ) = parse_UNRTUKA_first(files["historical"])
-
-    (
-        df_1870_to_1914,
-        years_70_14,
-        rates_70_14,
-    ) = parse_UNRTUKA_second(files["historical"])
-
-    (
-        df_1950_to_1970,
-        years_50_70,
-        rates_50_70,
-    ) = parse_UNRTUKA_third(files["historical"])
-    
-
+    (df_1760_to_1840, years_60_40, rates_60_40,) = parse_UNRTUKA_first(files["historical"])
+    (df_1870_to_1914, years_70_14, rates_70_14,) = parse_UNRTUKA_second(files["historical"])
+    (df_1950_to_1970, years_50_70, rates_50_70,) = parse_UNRTUKA_third(files["historical"])
     
     # Calculates Percentages for (un)employed stats
     if consent_given == 0:
         raise ValueError(
             "Cannot calculate respondent percentages: "
-        "no valid consent responses were recorded."
-    )
-
+        "no valid consent responses were recorded.")
+    #else:    
     employed_percent   = len(df_employed) / consent_given * 100
     unemployed_percent = len(df_unemployed) / consent_given * 100
 
@@ -312,8 +278,4 @@ if __name__ == "__main__":
     # plt.tight_layout()
     # plt.savefig("Data Analysis/Graphs/Fig4c.png", dpi=300, bbox_inches="tight")
     # plt.show()
-<<<<<<< HEAD
     # plt.close()
-=======
-    # plt.close()
->>>>>>> 3d588abf2d0e6bf6e0cb7c72441c01679ea9f527
