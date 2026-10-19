@@ -1,4 +1,4 @@
-## "To what extent will AI and automation increase economic inequality within developed economies, with a detailed case study of the United Kingdom?"
+## ["To what extent will AI and automation increase economic inequality within developed economies, with a detailed case study of the United Kingdom?"](https://tally.so/r/ODvZDR)
 #### AI, Automation and Economic Inequality
 
 1) **Introduction**
