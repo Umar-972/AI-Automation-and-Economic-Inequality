@@ -21,22 +21,24 @@ consent             : str  = "Yes, I agree"    # The exact answer that counts as
 # Subprograms
 #-------------------------
 
+
 def failsafe() -> dict[str, Path]:
-
-    # Directory containing this Python script
     BASE_DIR = Path(__file__).resolve().parent
+    PROJECT_DIR = BASE_DIR.parent
+    DATA_DIR = BASE_DIR / "Data Files"
 
-    # Define input file paths
     files = {
-        #"data": BASE_DIR / "data.csv",
-        #"test": BASE_DIR / "test_data.csv",
-        "annual": BASE_DIR / "Unemployment_rate_anual.csv",
-        "quarterly": BASE_DIR / "Unemployment_rate_quarterly.csv",
-        "monthly": BASE_DIR / "Unemployment_rate_monthly.csv",
-        "historical": BASE_DIR / "Data Files" / "UNRTUKA.csv",
+        # Located in Data Analysis
+        "data": PROJECT_DIR / "data.csv",
+        "test": PROJECT_DIR / "test_data.csv",
+
+        # Located in Scripts for Graphs / Data Files
+        "annual": DATA_DIR / "Unemployment_rate_annual.csv",
+        "quarterly": DATA_DIR / "Unemployment_rate_quarterly.csv",
+        "monthly": DATA_DIR / "Unemployment_rate_annual.csv",
+        "historical": DATA_DIR / "UNRTUKA.csv",
     }
 
-    # Check that all required files exist
     for name, file_path in files.items():
         if not file_path.is_file():
             raise FileNotFoundError(
@@ -44,6 +46,7 @@ def failsafe() -> dict[str, Path]:
             )
 
     return files
+
 
 def to_df(path, consent):
 
@@ -172,10 +175,9 @@ def parse_UNRTUKA_third(file):
 
 if __name__ == "__main__":
     
-    # Load all file paths with the failsafe func to ensure all files are present and in correct position
-    # Validate paths before processing data
-    files = failsafe()
-
+    # Load file paths with failsafe func to ensure files are present and in correct position
+    files = failsafe() # Validate paths before processing data
+    
     # Load survey data
     df, consent_given, no_consent = to_df(
         files["data"], consent
@@ -244,12 +246,19 @@ if __name__ == "__main__":
     #-------------------------
 
     # Fig1.png
-     #plt.figure()
-     #plt.pie(pie_val, labels=["Employed", "Unemployed", "Students", "Retireds"], autopct="%1.1f%%")
-     #plt.title("Employment status of respondents")
-     #plt.savefig("Data Analysis/Graphs/Fig1.png", dpi=300, bbox_inches="tight")
-     #plt.show()
-     #plt.close()
+    labels = ["Full time employed","Part time employed", "Self employed","Unemployed", "Students", "Retirees"]
+    # Keep only categories with at least one respondent
+    filtered = [(label, value) for label, value in zip(labels, pie_val) if value > 0]
+
+    # Separate the labels and values
+    filtered_labels = [item[0] for item in filtered]
+    filtered_values = [item[1] for item in filtered]
+    
+    plt.figure(figsize=(7, 7))
+    plt.pie(filtered_values, labels=filtered_labels, autopct="%1.1f%%")
+    plt.title("Employment status of respondents")
+    plt.savefig("Data Analysis/Graphs/Fig1.png")
+    plt.show()
 
     # # Fig2a.png
     # plt.figure(figsize=(12, 6))

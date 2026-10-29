@@ -85,7 +85,7 @@ if __name__ == "__main__":
     filtered_labels = [item[0] for item in filtered]
     filtered_values = [item[1] for item in filtered]
     
-    plt.figure(figsize=(7, 7))
+    plt.figure(figsize=(6.5,6.5))
     plt.pie(filtered_values, labels=filtered_labels, autopct="%1.1f%%")
     plt.title("Employment status of respondents")
     plt.savefig("Data Analysis/Graphs/Fig1.png")
