@@ -16,11 +16,10 @@ unemployment_status : str  = "Unemployed"
 student             : str  = "Student"
 retired             : str  = "Retired"
 consent             : str  = "Yes, I agree"    # The exact answer that counts as giving consent
-
+EMPLOYMENT_STATUS = "What is your current employment status?"
 #-------------------------
 # Subprograms
 #-------------------------
-
 
 def failsafe() -> dict[str, Path]:
     BASE_DIR = Path(__file__).resolve().parent
@@ -47,7 +46,6 @@ def failsafe() -> dict[str, Path]:
 
     return files
 
-
 def to_df(path, consent):
 
     # keep_default_na=False stops pandas turning the text "N/A" into a missing value
@@ -72,20 +70,24 @@ def to_df(path, consent):
 def employed_unemployed(df):
 
     # Seperate emplyed & unemployed datasets
-    employed      = df["What is your current employment status?"].isin(employment_status)
-    unemployed    = df["What is your current employment status?"] == unemployment_status
-    students      = df["What is your current employment status?"] == student
-    retireds      = df["What is your current employment status?"] == retired
+    full_time_employed          = df[EMPLOYMENT_STATUS] == "Full-time employee"
+    part_time_employed          = df[EMPLOYMENT_STATUS] == "Part-time employee"
+    self_employed               = df[EMPLOYMENT_STATUS] == "Self-employed,"
+    unemployed                  = df[EMPLOYMENT_STATUS] == "Unemployed and currently seeking work"
+    students                    = df[EMPLOYMENT_STATUS] == "Student"
+    retirees                    = df[EMPLOYMENT_STATUS] == "Retired"
 
     # Turn datasets into proper DataFrames
-    df_employed   = df[employed]
-    df_unemployed = df[unemployed]
-    df_students   = df[students]
-    df_retireds   = df[retireds]
+    df_full_time_employed   = df[full_time_employed]
+    df_part_time_employed   = df[part_time_employed]
+    df_self_employed        = df[self_employed]
+    df_unemployed           = df[unemployed]
+    df_students             = df[students]
+    de_retirees             = df[retirees]
 
-    pie_val = [len(df_employed), len(df_unemployed), len(df_students), len(df_retireds)]
+    pie_val = [len(df_full_time_employed), len(df_part_time_employed), len(df_self_employed), len(df_unemployed), len(df_students), len(de_retirees)]
 
-    return df_employed, df_unemployed, df_students, df_retireds, pie_val
+    return df_full_time_employed, df_part_time_employed, df_self_employed, df_unemployed, df_students, de_retirees, pie_val
 
 def parse_unemployed_csv_anual(unemployment_data_file):
     # Anual data lines 1-55
@@ -179,57 +181,21 @@ if __name__ == "__main__":
     files = failsafe() # Validate paths before processing data
     
     # Load survey data
-    df, consent_given, no_consent = to_df(
-        files["data"], consent
-    )
+    df, consent_given, no_consent = to_df(files["data"], consent)
 
     # Separate respondents by employment status
-    (
-        df_employed,
-        df_unemployed,
-        df_students,
-        df_retireds,
-        pie_val,
-    ) = employed_unemployed(df)
+    (df_employed, df_unemployed, df_students, df_retireds, pie_val) = employed_unemployed(df)
 
     # Load unemployment statistics
-    (
-        df_unemployment_anual,
-        years,
-        rates_anual,
-        final_5_yr,
-        final_5_rates,
-    ) = parse_unemployed_csv_anual(files["annual"])
-
-    (
-        df_unemployment_quarterly,
-        quarters,
-        rates_quarterly,
-    ) = parse_unemployed_csv_quarterly(files["quarterly"])
-
+    (df_unemployment_anual, years, rates_anual, final_5_yr, final_5_rates) = parse_unemployed_csv_anual(files["annual"])
+    (df_unemployment_quarterly, quarters, rates_quarterly,) = parse_unemployed_csv_quarterly(files["quarterly"])
     df_unemployment_monthly = (parse_unemployed_csv_monthly(files["monthly"]))
 
     # Load historical data
-    (
-        df_1760_to_1840,
-        years_60_40,
-        rates_60_40,
-    ) = parse_UNRTUKA_first(files["historical"])
-
-    (
-        df_1870_to_1914,
-        years_70_14,
-        rates_70_14,
-    ) = parse_UNRTUKA_second(files["historical"])
-
-    (
-        df_1950_to_1970,
-        years_50_70,
-        rates_50_70,
-    ) = parse_UNRTUKA_third(files["historical"])
-    
-
-    
+    (df_1760_to_1840, years_60_40, rates_60_40,) = parse_UNRTUKA_first(files["historical"])
+    (df_1870_to_1914, years_70_14, rates_70_14,) = parse_UNRTUKA_second(files["historical"])
+    (df_1950_to_1970, years_50_70, rates_50_70,) = parse_UNRTUKA_third(files["historical"])
+   
     # Calculates Percentages for (un)employed stats
     if consent_given == 0:
         raise ValueError(
@@ -237,20 +203,17 @@ if __name__ == "__main__":
         "no valid consent responses were recorded."
     )
 
-    employed_percent   = len(df_employed) / consent_given * 100
-    unemployed_percent = len(df_unemployed) / consent_given * 100
-
-    print("all working")
     #-------------------------
     # Show All Figures 
     #-------------------------
 
     # Fig1.png
     labels = ["Full time employed","Part time employed", "Self employed","Unemployed", "Students", "Retirees"]
-    # Keep only categories with at least one respondent
+    
+    # Keep categories with at least one respondent
     filtered = [(label, value) for label, value in zip(labels, pie_val) if value > 0]
 
-    # Separate the labels and values
+    # Separate labels & vals
     filtered_labels = [item[0] for item in filtered]
     filtered_values = [item[1] for item in filtered]
     
