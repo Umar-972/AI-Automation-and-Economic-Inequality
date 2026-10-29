@@ -30,7 +30,7 @@ def failsafe() -> dict[str, Path]:
         # Located in Data Analysis
         "data": PROJECT_DIR / "data.csv",
         "test": PROJECT_DIR / "test_data.csv",
-
+        
         # Located in Scripts for Graphs / Data Files
         "annual": DATA_DIR / "Unemployment_rate_annual.csv",
         "quarterly": DATA_DIR / "Unemployment_rate_quarterly.csv",
@@ -244,16 +244,16 @@ if __name__ == "__main__":
     # plt.close()
     
     # Fig4a.png
-    plt.figure(figsize=(12, 6))
-    plt.plot(years_60_40, rates_60_40)
-    plt.title("UK Unemployment Rates, 1760-1840 (First Industrial Revolution)")
-    plt.xlabel("Year")
-    plt.ylabel("Unemployment rate (%)")
-    plt.xticks(years_60_40[::4], rotation=45)
-    plt.tight_layout()
-    plt.savefig("Data Analysis/Graphs/Fig4a.png", dpi=300)
-    plt.show()
-    plt.close()
+    # plt.figure(figsize=(12, 6))
+    # plt.plot(years_60_40, rates_60_40)
+    # plt.title("UK Unemployment Rates, 1760-1840 (First Industrial Revolution)")
+    # plt.xlabel("Year")
+    # plt.ylabel("Unemployment rate (%)")
+    # plt.xticks(years_60_40[::4], rotation=45)
+    # plt.tight_layout()
+    # plt.savefig("Data Analysis/Graphs/Fig4a.png", dpi=300)
+    # plt.show()
+    # plt.close()
     
     # Fig4a.png
     # plt.figure(figsize=(12, 6))
