@@ -20,6 +20,7 @@ consent             : str  = "Yes, I agree"    # The exact answer that counts as
 #-------------------------
 # Subprograms
 #-------------------------
+
 def failsafe() -> dict[str, Path]:
 
     # Directory containing this Python script
@@ -243,12 +244,12 @@ if __name__ == "__main__":
     #-------------------------
 
     # Fig1.png
-    # plt.figure()
-    # plt.pie(pie_val, labels=["Employed", "Unemployed", "Students", "Retireds"], autopct="%1.1f%%")
-    # plt.title("Employment status of respondents")
-    # plt.savefig("Data Analysis/Graphs/Fig1.png", dpi=300, bbox_inches="tight")
-    # plt.show()
-    # plt.close()
+     #plt.figure()
+     #plt.pie(pie_val, labels=["Employed", "Unemployed", "Students", "Retireds"], autopct="%1.1f%%")
+     #plt.title("Employment status of respondents")
+     #plt.savefig("Data Analysis/Graphs/Fig1.png", dpi=300, bbox_inches="tight")
+     #plt.show()
+     #plt.close()
 
     # # Fig2a.png
     # plt.figure(figsize=(12, 6))
