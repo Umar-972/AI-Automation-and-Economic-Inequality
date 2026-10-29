@@ -184,7 +184,7 @@ if __name__ == "__main__":
     df, consent_given, no_consent = to_df(files["data"], consent)
 
     # Separate respondents by employment status
-    (df_employed, df_unemployed, df_students, df_retireds, pie_val) = employed_unemployed(df)
+    (df_full_time_employed, df_part_time_employed, df_self_employed, df_unemployed, df_students, de_retirees, pie_val) = employed_unemployed(df)
 
     # Load unemployment statistics
     (df_unemployment_anual, years, rates_anual, final_5_yr, final_5_rates) = parse_unemployed_csv_anual(files["annual"])
@@ -208,36 +208,26 @@ if __name__ == "__main__":
     #-------------------------
 
     # Fig1.png
-    labels = ["Full time employed","Part time employed", "Self employed","Unemployed", "Students", "Retirees"]
+    # labels = ["Full time employed","Part time employed", "Self employed","Unemployed", "Students", "Retirees"]
     
-    # Keep categories with at least one respondent
-    filtered = [(label, value) for label, value in zip(labels, pie_val) if value > 0]
+    # # Keep categories with at least one respondent
+    # filtered = [(label, value) for label, value in zip(labels, pie_val) if value > 0]
 
-    # Separate labels & vals
-    filtered_labels = [item[0] for item in filtered]
-    filtered_values = [item[1] for item in filtered]
+    # # Separate labels & vals
+    # filtered_labels = [item[0] for item in filtered]
+    # filtered_values = [item[1] for item in filtered]
     
-    plt.figure(figsize=(7, 7))
-    plt.pie(filtered_values, labels=filtered_labels, autopct="%1.1f%%")
-    plt.title("Employment status of respondents")
-    plt.savefig("Data Analysis/Graphs/Fig1.png")
-    plt.show()
-
-    # # Fig2a.png
-    # plt.figure(figsize=(12, 6))
-    # plt.plot(years, rates_anual, marker="o")
-    # plt.title("Unemployment rates from 1971-2025")
-    # plt.xlabel("Year")
-    # plt.ylabel("Unemployment rate (%)")
-    # plt.tight_layout()
-    # plt.savefig("Data Analysis/Graphs/Fig2a.png", dpi=300, bbox_inches="tight")
+    # plt.figure(figsize=(7, 7))
+    # plt.pie(filtered_values, labels=filtered_labels, autopct="%1.1f%%")
+    # plt.title("Employment status of respondents")
+    # plt.savefig("Data Analysis/Graphs/Fig1.png")
     # plt.show()
 
-    # # Fig2b.png
+    # Fig2.png
     # plt.figure()
     # plt.plot(final_5_yr, final_5_rates, marker="o")
     # plt.title("Unemployment rates from 2020-2025")
-    # plt.savefig("Data Analysis/Graphs/Fig2b.png", dpi=300, bbox_inches="tight")
+    # plt.savefig("Data Analysis/Graphs/Fig2.png", dpi=300, bbox_inches="tight")
     # plt.show()
     # plt.close()
 
@@ -252,18 +242,29 @@ if __name__ == "__main__":
     # plt.savefig("Data Analysis/Graphs/Fig3.png", dpi=300, bbox_inches="tight")
     # plt.show()
     # plt.close()
-
+    
+    # Fig4a.png
+    plt.figure(figsize=(12, 6))
+    plt.plot(years_60_40, rates_60_40)
+    plt.title("UK Unemployment Rates, 1760-1840 (First Industrial Revolution)")
+    plt.xlabel("Year")
+    plt.ylabel("Unemployment rate (%)")
+    plt.xticks(years_60_40[::4], rotation=45)
+    plt.tight_layout()
+    plt.savefig("Data Analysis/Graphs/Fig4a.png", dpi=300)
+    plt.show()
+    plt.close()
+    
     # Fig4a.png
     # plt.figure(figsize=(12, 6))
-    # plt.plot(years_60_40, rates_60_40, marker="o")
-    # plt.title("UK Unemployment Rates, 1760-1840 (First Industrial Revolution)")
+    # plt.plot(years_50_70, rates_50_70, marker="o")
+    # plt.title("UK Unemployment Rates, 1950-1970 (Third Industrial Revolution)")
     # plt.xlabel("Year")
     # plt.ylabel("Unemployment rate (%)")
-    # plt.xticks(years_60_40[::4], rotation=45)
+    # plt.xticks(years_50_70[::2], rotation=45)
     # plt.tight_layout()
-    # plt.savefig("Data Analysis/Graphs/Fig4a.png", dpi=300)
+    # plt.savefig("Data Analysis/Graphs/Fig4.png", dpi=300, bbox_inches="tight")
     # plt.show()
-    # plt.close()
 
     # # Fig4b.png
     # plt.figure(figsize=(12, 6))
@@ -276,14 +277,3 @@ if __name__ == "__main__":
     # plt.savefig("Data Analysis/Graphs/Fig4b.png", dpi=300, bbox_inches="tight")
     # plt.show()
     # plt.close()
-    
-    # # Fig4c.png
-    # plt.figure(figsize=(12, 6))
-    # plt.plot(years_50_70, rates_50_70, marker="o")
-    # plt.title("UK Unemployment Rates, 1950-1970 (Third Industrial Revolution)")
-    # plt.xlabel("Year")
-    # plt.ylabel("Unemployment rate (%)")
-    # plt.xticks(years_50_70[::2], rotation=45)
-    # plt.tight_layout()
-    # plt.savefig("Data Analysis/Graphs/Fig4c.png", dpi=300, bbox_inches="tight")
-    # plt.show()
