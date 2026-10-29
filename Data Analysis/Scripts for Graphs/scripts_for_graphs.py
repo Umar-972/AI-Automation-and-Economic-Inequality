@@ -27,7 +27,8 @@ def failsafe() -> dict[str, Path]:
 
     # Define input file paths
     files = {
-        "test": BASE_DIR / "test_data.csv",
+        #"data": BASE_DIR / "data.csv",
+        #"test": BASE_DIR / "test_data.csv",
         "annual": BASE_DIR / "Unemployment_rate_anual.csv",
         "quarterly": BASE_DIR / "Unemployment_rate_quarterly.csv",
         "monthly": BASE_DIR / "Unemployment_rate_monthly.csv",
@@ -176,7 +177,7 @@ if __name__ == "__main__":
 
     # Load survey data
     df, consent_given, no_consent = to_df(
-        files["test"], consent
+        files["data"], consent
     )
 
     # Separate respondents by employment status
@@ -236,6 +237,7 @@ if __name__ == "__main__":
     employed_percent   = len(df_employed) / consent_given * 100
     unemployed_percent = len(df_unemployed) / consent_given * 100
 
+    print("all working")
     #-------------------------
     # Show All Figures 
     #-------------------------
@@ -312,8 +314,3 @@ if __name__ == "__main__":
     # plt.tight_layout()
     # plt.savefig("Data Analysis/Graphs/Fig4c.png", dpi=300, bbox_inches="tight")
     # plt.show()
-<<<<<<< HEAD
-    # plt.close()
-=======
-    # plt.close()
->>>>>>> 3d588abf2d0e6bf6e0cb7c72441c01679ea9f527

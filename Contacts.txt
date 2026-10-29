@@ -1,73 +1,121 @@
-Organisations to contact for EPQ        Contacted
-
-    library.service@rochdale.gov.uk                     ✅
-    central.library@bolton.gov.uk                       ✅
-    DTL@rochdale.gov.uk                                 ✅
-    local.studies@yourtrustrochdale.co.uk               ✅
-    info@glasgowlife.org.uk                             ✅
-    eclis@edinburgh.gov.uk                              ✅
-    CulterLibrary@aberdeencity.gov.uk                   ✅
-    international@mmu.ac.uk                             ✅
-    hrservices@manchester.ac.uk                         ✅
-    askus@salford.ac.uk                                 ✅
-    ask@hud.ac.uk                                       ✅
-    admin@wardleworthcc.org.uk                          ✅
-    DyceLibrary@aberdeencity.gov.uk                     ✅
-    AiryhallLibrary@aberdeencity.gov.uk                 ✅
-    researchdevelopment@lancaster.ac.uk                 ✅
-    hello@beenetwork.com                                ✅
-    media@lidl.us                                       ✅
-    al@morrisonsplc.co.uk                               ✅
-    social@co-operative.coop                            ✅
-    england.contactus@nhs.net                           ✅
-    fleur.patten@papworthtrust.org.uk                   ✅
-    jobsandskills@rochdale.gov.uk                       ✅
-    info@becomeunited.org.uk                            ✅
-    info@r-c-t.co.uk                                    ✅
-    petrus@petrus.org.uk                                ✅
-    asgharspotlandcc@inbox.com                          ✅
-    joinus@onestop.co.uk                                ✅
-    enquiries@tc-group.com                              ✅
-    heretohelp@bhf.org.uk                               ✅
-    enquiries@librariesni.org.uk                        ✅
-    national.touring@nationalgallery.org.uk             ✅
-    thelibrarycampaign@gmail.com                        ✅
-    central.library@swansea.gov.uk                      ✅
-    info@openstudycollege.com                           ✅
-    ask@ulster.libanswers.com                           ✅
-    research@dundee.ac.uk                               ✅
-    enquirycentre@cumbria.ac.uk                         ✅
-    info.procurement@magairports.com                    ✅
-    twoods@liverpoolairport.com                         ✅
-    AgsMediaCentre@agsairports.co.uk                    ✅
-    info@cwl.aero                                       ✅
-    reception.bury@village-hotels.com                   ✅
-    manchester-royalexchange@motel-one.com              ✅
-    reception@hamptonbyhiltonrochdale.com               ✅
-    info@thebroadfieldparkhotel.com                     ✅
-    reservations@nortongrangehotel.com                  ✅
-    info@fernhillbreaks.co.uk                           ✅
-    pprlgr@pphe.com                                     ✅
-    ParkLane_Reservations@hilton.com                    ✅
-    reservations.tara@millenniumhotels.co.uk            ✅   
-    hello@huxhotel.com                                  ✅
-    info@thegoldenmile.co.uk                            ✅
-    heretohelp@parkdean-resorts.com                     ✅
-    Twelveknights.porttalbot@marstons.co.uk             ✅
-    info@expressswansea.co.uk                           ✅
-    HB539-DU@accor.com                                  ✅
-    info@pier36.co.uk                                   ✅
-    info@lamon.co.uk                                    ✅
-    info@clenaghans.com                                 ✅
-    info@dunadry.com                                    ✅
-    info@corrscorner.com                                ✅
-    reservations@apexhotels.co.uk                       ✅
-    standrews.scotland@fairmont.com                     ✅
-    thecourt@staywithcode.com                           ✅
-    theloft@staywithcode.com                            ✅
-    info@haymarket-hotel.co.uk                          ✅
-    corstlodge@aol.com                                  ✅
-    
+Organisations contacted requesting assistance with EPQ survey:
+    library.service@rochdale.gov.uk
+    central.library@bolton.gov.uk   
+    DTL@rochdale.gov.uk    
+    local.studies@yourtrustrochdale.co.uk    
+    info@glasgowlife.org.uk   
+    eclis@edinburgh.gov.uk
+    CulterLibrary@aberdeencity.gov.uk     
+    international@mmu.ac.uk           
+    hrservices@manchester.ac.uk
+    askus@salford.ac.uk            
+    ask@hud.ac.uk               
+    admin@wardleworthcc.org.uk
+    DyceLibrary@aberdeencity.gov.uk             
+    AiryhallLibrary@aberdeencity.gov.uk         
+    researchdevelopment@lancaster.ac.uk         
+    hello@beenetwork.com
+    media@lidl.us
+    al@morrisonsplc.co.uk                       
+    social@co-operative.coop                    
+    england.contactus@nhs.net                   
+    fleur.patten@papworthtrust.org.uk           
+    jobsandskills@rochdale.gov.uk               
+    info@becomeunited.org.uk                    
+    info@r-c-t.co.uk                            
+    petrus@petrus.org.uk                        
+    asgharspotlandcc@inbox.com                  
+    joinus@onestop.co.uk                        
+    enquiries@tc-group.com                      
+    heretohelp@bhf.org.uk                       
+    enquiries@librariesni.org.uk                
+    national.touring@nationalgallery.org.uk     
+    thelibrarycampaign@gmail.com                
+    central.library@swansea.gov.uk              
+    info@openstudycollege.com                   
+    ask@ulster.libanswers.com                   
+    research@dundee.ac.uk                       
+    enquirycentre@cumbria.ac.uk                 
+    info.procurement@magairports.com            
+    twoods@liverpoolairport.com                 
+    AgsMediaCentre@agsairports.co.uk            
+    info@cwl.aero                               
+    reception.bury@village-hotels.com           
+    manchester-royalexchange@motel-one.com      
+    reception@hamptonbyhiltonrochdale.com       
+    info@thebroadfieldparkhotel.com             
+    reservations@nortongrangehotel.com          
+    info@fernhillbreaks.co.uk                   
+    pprlgr@pphe.com                             
+    ParkLane_Reservations@hilton.com            
+    reservations.tara@millenniumhotels.co.uk              
+    hello@huxhotel.com                                 
+    info@thegoldenmile.co.uk                           
+    heretohelp@parkdean-resorts.com                    
+    Twelveknights.porttalbot@marstons.co.uk            
+    info@expressswansea.co.uk                          
+    HB539-DU@accor.com                                 
+    info@pier36.co.uk                                  
+    info@lamon.co.uk                                   
+    info@clenaghans.com                                
+    info@dunadry.com                                   
+    info@corrscorner.com                               
+    reservations@apexhotels.co.uk                      
+    standrews.scotland@fairmont.com                    
+    thecourt@staywithcode.com                          
+    theloft@staywithcode.com                           
+    info@haymarket-hotel.co.uk                         
+    corstlodge@aol.com                                 
+    business@york.ac.uk                                
+    deeplish@focus-trust.co.uk                         
+    office@brimrodprimary.rochdale.sch.uk              
+    office@marlandhill.rochdale.sch.uk                 
+    office@ashfieldvalley.rochdale.sch.uk              
+    office@stjohnsrc.rochdale.sch.uk                   
+    info@spotland.theharmonytrust.org                  
+    admin@bwslive.co.uk                                
+    hello@theschoolrooms.co.uk                         
+    hello@rivelininn.co.uk                             
+    enquiries@raftersrestaurant.co.uk                  
+    info@thehoebridge.com                              
+    sales@eastendlogistics.com
+    info@belttransport.co.uk
+    pth.civ@gmail.com
+    info@frenni.co.uk
+    enquiries@midwalesfreight.co.uk
+    info@aubreystorage.co.uk
+    info@tlgtrans.co.uk
+    info@flsgroup.co.uk
+    traffic@jdexpressltd.co.uk
+    manchester@wcluk.com
+    hull@wcluk.com
+    aberdeen@wcluk.com
+    luton@wcluk.com
+    thorpe@wcluk.com
+    immingham@wcluk.com
+    midlands@wcluk.com
+    info@zklogisticsgroup.com
+    george@mclaughlantransport.com
+    dundee@mhcarriers.co.uk
+    info@internationallogiticsservices.com  
+    agency@kinnes-shipping.co.uk
+    forwarding@kinnes-shipping.co.uk
+    enquiries@onept.co.uk
+    ben@bodypro-training.com
+    hello.relentlessgym@gmail.com
+    info@w6gym.com
+    bookings@postalmuseum.org
+    info@gym-nation.co.uk
+    info@thegym.cymru
+    info@ld24fitness.co.uk
+    davesgymenquiries@gmail.com
+    reception@fitnessquarter.co.uk
+    hq_ltd@outlook.com
+    olympiagymcookstown@outlook.com
+    fitforever15cavan@gmail.com
+    admin@impactgym.co.uk
+    theunitgymandfitness@gmail.com
+    dan.smith@savills.com
     
 ---------------------------------------------------------
 
@@ -77,3 +125,6 @@ Agreed to help:
 Were unable to assist:
     Salford University
     Become United UK
+    The Haymarket Hotel
+
+Everyone else did not get back to us.

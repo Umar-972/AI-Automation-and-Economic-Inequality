@@ -23,6 +23,6 @@ Promt: "Generate me a poster advertising the latest pair of RUNNING SHOES. Make 
 
 #3[ChatGPT, 28, 5, 5, 0] [4,3]
 #3[Claude, 239, 3, 2, 0] [1,2]
-    Check for error & amended them in real time
+    Auto checked for error & amended them in real time
 #3[Gemini, 15, 5, 4, 0] [5,4]
 #3[Copilot, 54, 5, 4, 0] [4,3]

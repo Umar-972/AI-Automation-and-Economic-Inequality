@@ -14,10 +14,10 @@ Important Notes:
 Compared tasks involving different skill levels. 
 
 Only models tested:
-        ChatGPT : GPT-5.6 Luna
-        Claude  : Sonnet 5.5 (Medium effort)
-        Gemini  : Flash
-        Copilot : Microsoft 365 Copilot (Powered by GPT-5)
+    ChatGPT : GPT-5.6 Luna
+    Claude  : Sonnet 5.5 (Medium effort)
+    Gemini  : Flash
+    Copilot : Microsoft 365 Copilot (Powered by GPT-5)
 
 Range of tasks tested:     
     Report writing. 

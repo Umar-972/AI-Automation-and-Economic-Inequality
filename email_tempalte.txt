@@ -25,7 +25,7 @@ Muhammad Umar
 
 
 
-Dear xxx,
+Dear {Organisation Name},
 
 My name is Muhammad Umar, and I am currently a student at Rochdale Sixth Form College. I am reaching out to kindly request your permission to display a QR code in your store or staff breakroom for employees to scan.
 
@@ -35,10 +35,10 @@ I am conducting primary research for my Extended Project Qualification (EPQ) on 
 
 A central part of my research focuses on public attitudes towards Generative AI, as well as its perceived impact on employability and job security, particularly among working-class individuals in advanced economies.
 
-To collect primary data, I have created a brief survey. I was hoping you might be open to displaying QR code posters in suitable staff or public areas (such as noticeboards, breakrooms, or customer counters) where employees or visitors could 
-scan and complete it. 
+To collect primary data, I have created a brief survey (1-2 mins). I was hoping you might be open to displaying QR code posters in suitable staff or public areas (such as noticeboards, breakrooms, or customer counters) where employees or visitors could scan and complete it. 
 
 This would help me reach a diverse group of respondents and significantly enhance the reliability of my project.
+
 I would be extremely grateful for any support you can offer. I can provide the poster template or any additional details about my project if needed.
 
 Thank you very much for your time and consideration.
