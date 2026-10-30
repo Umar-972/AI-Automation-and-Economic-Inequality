@@ -145,7 +145,7 @@ def seperate_dfs(df): # Creates different DFs
 
     return df_full_time_employed, df_part_time_employed, df_self_employed, df_unemployed, df_students, de_retirees, pie_val
 
-def question_index(questions, path) -> dict:
+def question_index(questions, path) -> dict: # {Question : Index of Question}
     ALL_QUESTION_DICT = {}
     
     with open(path, mode='r', encoding='utf-8') as file:
@@ -167,9 +167,37 @@ def question_index(questions, path) -> dict:
 if __name__ == "__main__":
     file = "Data Analysis/data.csv" # Declare data file
 
-    df, consent_given, no_consent                              = to_df(file, consent) # Turns file into DataFrame
+    df, consent_given, no_consent = to_df(file, consent) # Turns file into DataFrame
     df_full_time_employed, df_part_time_employed, df_self_employed, df_unemployed, df_students, de_retirees, pie_val = seperate_dfs(df) # Seperate main DataFrame  
     ALL_QUESTION_DICT = question_index(ALL_QUESTION_ARRAY, file)
+    
+    # Quantity of all students that use AI
+    students_used_AI = (df_students[EVER_USED_AI] == "Yes").sum()
+    print(f"Percentage of all students that use AI: {students_used_AI/len(df_students)*100:.1f}%")
+    
+    # Quantity of GCSE students that use AI
+    GCSE_students = df_students[df_students[HIGHEST_EDUCATION] == "GCSE/equivalent or below"]
+    GCSE_AI = GCSE_students[GCSE_students[EVER_USED_AI] == "Yes"]
+    percentage_GCSE = len(GCSE_AI) / len(GCSE_students) * 100
+    print(f"Percentage of students (with highest education at GCSE or below) that use AI: {percentage_GCSE:.1f}%, from a total of {len(GCSE_students)}")
+
+    # # Quantity of A Level students that use AI
+    AL_students = df_students[df_students[HIGHEST_EDUCATION] == "A-level/equivalent"]
+    AL_AI = AL_students[AL_students[EVER_USED_AI] == "Yes"]
+    percentage_AL = len(AL_AI) / len(AL_students) * 100
+    print(f"Percentage of students (with highest education at A Level) that use AI: {percentage_AL:.1f}%, from a total of {len(AL_students)}")
+
+    # Quantity of Undergraduate degree students that use AI
+    Under_students = df_students[df_students[HIGHEST_EDUCATION] == "Undergraduate degree"]
+    Under_AI = Under_students[Under_students[EVER_USED_AI] == "Yes"]
+    percentage_Under = len(Under_AI) / len(Under_students) * 100
+    print(f"Percentage of students (with highest education at an Undergraduate degree) that use AI: {percentage_Under:.1f}%, from a total of {len(Under_students)}")
+
+    # Quantity of Postgraduate degree students that use AI
+    Post_students = df_students[df_students[HIGHEST_EDUCATION] == "Postgraduate degree"]
+    Post_AI = Post_students[Post_students[EVER_USED_AI] == "Yes"]
+    percentage_Post = len(Post_AI) / len(Post_students) * 100
+    print(f"Percentage of students (with highest education at a Postgraduate degree) that use AI: {percentage_Post:.1f}%, from a total of {len(Post_students)}")
 
 
 
