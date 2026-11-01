@@ -185,6 +185,21 @@ if __name__ == "__main__":
     df_agriculture      = df[df[JOB] == "Agriculture, forestry or fishing"]
     df_construction     = df[df[JOB] == "Construction"]
     
+    # Age ranges
+    # Young: Under 18, 18–24, 25–34
+    # Middle aged: 35–44, 45–54
+    # Old: 55–64, 65+
+    df_young            = df[df["AGE"].isin(["Under 18", "18–24", "25–34"])]
+    df_middle_aged      = df[df["AGE"].isin(["35–44", "45–54"])]
+    df_old              = df[df["AGE"].isni(["55–64", "65+"])]
+    
+    # Sectors of work: Primary, Secondary, Tertiary, Quaternary, Unidefined
+    df_primary          = df[df[JOB] == "Agriculture, forestry or fishing"]
+    df_secondary        = df[df[JOB].isin(["Construction", "Manufacturing"])]
+    df_tertiary         = df[df[JOB].isin(["Public administration", "Education", "Transport or logistics", "Healthcare or social care", 
+                                   "Professional or business services", "Finance, insurance or banking", "Retail or hospitality"])]
+    df_quaternary       = df[df[JOB].isin(["Technology or IT", "Media or creative industries"])]
+    df_unidefined       = df[df["AGE"] == "Other"]
     
     # # Quantity of all students that use AI
     # students_used_AI  = (df_students[EVER_USED_AI] == "Yes").sum()
@@ -223,19 +238,19 @@ if __name__ == "__main__":
     # print(f"Percentage of under 18s that have used AI: {percentage_U18:.1f}%, from a total of {len(U18)} with {U18_Daily_per:.1f}% using AI daily")
     
     # # 18-24 that use AI
-    # _18_24             = df[df[AGE] == "18–24"]
-    # _18_24_AI          = _18_24[_18_24[EVER_USED_AI] == "Yes"]
-    # percentage_18_24   = len(_18_24_AI) / len(_18_24) * 100
-    # _18_24_Daily       = _18_24[_18_24[FREQUENCY_USE] == "Daily"]
-    # _18_24_Daily_per   = len(_18_24_Daily) / len(_18_24) * 100
+    # _18_24            = df[df[AGE] == "18–24"]
+    # _18_24_AI         = _18_24[_18_24[EVER_USED_AI] == "Yes"]
+    # percentage_18_24  = len(_18_24_AI) / len(_18_24) * 100
+    # _18_24_Daily      = _18_24[_18_24[FREQUENCY_USE] == "Daily"]
+    # _18_24_Daily_per  = len(_18_24_Daily) / len(_18_24) * 100
     # print(f"Percentage of people aged 18 to 24 that have used AI: {percentage_18_24:.1f}%, from a total of {len(_18_24)} with {_18_24_Daily_per:.1f}% using AI daily")
     
     # # 25-34
-    # _25_34             = df[df[AGE] == "25–34"]
-    # _25_34_AI          = _25_34[_25_34[EVER_USED_AI] == "Yes"]
-    # percentage_25_34   = len(_25_34_AI) / len(_25_34) * 100
-    # _25_34_Daily       = _25_34[_25_34[FREQUENCY_USE] == "Daily"]
-    # _25_34_Daily_per   = len(_25_34_Daily) / len(_25_34) * 100
+    # _25_34            = df[df[AGE] == "25–34"]
+    # _25_34_AI         = _25_34[_25_34[EVER_USED_AI] == "Yes"]
+    # percentage_25_34  = len(_25_34_AI) / len(_25_34) * 100
+    # _25_34_Daily      = _25_34[_25_34[FREQUENCY_USE] == "Daily"]
+    # _25_34_Daily_per  = len(_25_34_Daily) / len(_25_34) * 100
     # print(f"Percentage of people aged 25 to 34 that have used AI: {percentage_25_34:.1f}%, from a total of {len(_25_34)} with {_25_34_Daily_per:.1f}% using AI daily")
 
 
