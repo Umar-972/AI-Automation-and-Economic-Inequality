@@ -3,12 +3,11 @@
 
 1) **Introduction**
 2) **Definitions and Economic Terminology**
-3) **Personal Experimentation with AI and Automation**
-4) **AI, Automation and Employment**
-5) **AI and Wage Inequality**
-6) **Primary Research – Questionnaire**
-7) **Existing Research and Data Sources**
-8) **Analysis and Discussion**
-9) **Government Policy**
-10) **Evaluation of the Research Process**
-11) **Conclusion**
+3) **AI, Automation and Employment**
+4) **AI and Wage Inequality**
+5) **Primary Research – Questionnaire**
+6) **Existing Research and Data Sources**
+7) **Analysis and Discussion**
+8) **Government Policy**
+9) **Evaluation of the Research Process**
+10) **Conclusion**
