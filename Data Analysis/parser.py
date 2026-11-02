@@ -185,21 +185,23 @@ if __name__ == "__main__":
     df_agriculture      = df[df[JOB] == "Agriculture, forestry or fishing"]
     df_construction     = df[df[JOB] == "Construction"]
     
-    # Age ranges
-    # Young: Under 18, 18–24, 25–34
-    # Middle aged: 35–44, 45–54
-    # Old: 55–64, 65+
-    df_young            = df[df["AGE"].isin(["Under 18", "18–24", "25–34"])]
-    df_middle_aged      = df[df["AGE"].isin(["35–44", "45–54"])]
-    df_old              = df[df["AGE"].isni(["55–64", "65+"])]
-    
     # Sectors of work: Primary, Secondary, Tertiary, Quaternary, Unidefined
     df_primary          = df[df[JOB] == "Agriculture, forestry or fishing"]
     df_secondary        = df[df[JOB].isin(["Construction", "Manufacturing"])]
     df_tertiary         = df[df[JOB].isin(["Public administration", "Education", "Transport or logistics", "Healthcare or social care", 
-                                   "Professional or business services", "Finance, insurance or banking", "Retail or hospitality"])]
+                                    "Professional or business services", "Finance, insurance or banking", "Retail or hospitality"])]
     df_quaternary       = df[df[JOB].isin(["Technology or IT", "Media or creative industries"])]
-    df_unidefined       = df[df["AGE"] == "Other"]
+    df_unidefined       = df[df[JOB] == "Other"]
+    
+    # Age ranges
+    # Young: Under 18, 18–24, 25–34
+    # Middle aged: 35–44, 45–54
+    # Old: 55–64, 65+
+    df_young            = df[df[AGE].isin(["Under 18", "18–24", "25–34"])]
+    df_middle_aged      = df[df[AGE].isin(["35–44", "45–54"])]
+    df_old              = df[df[AGE].isni(["55–64", "65+"])]
+    
+    
     
     # # Quantity of all students that use AI
     # students_used_AI  = (df_students[EVER_USED_AI] == "Yes").sum()
