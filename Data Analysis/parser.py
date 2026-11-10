@@ -28,7 +28,7 @@ SOME_AUTO_TASKS         = "Q3C. If you think AI or automation contributed to you
 AI_ADOPTIONS            = "Q3C. If you think AI or automation contributed to your unemployment, how? Select all that apply. (My previous employer adopted AI and reduced staffing)"
 CHANGE_SKILLS           = "Q3C. If you think AI or automation contributed to your unemployment, how? Select all that apply. (AI changed the skills required for my previous job)"
 REDUCE_OPPORTUNITY      = "Q3C. If you think AI or automation contributed to your unemployment, how? Select all that apply. (I believe AI reduced opportunities in my previous occupation)"
-OTHER                   = "Q3C. If you think AI or automation contributed to your unemployment, how? Select all that apply. (Other)"
+OTHER_AI_EFFECT         = "Q3C. If you think AI or automation contributed to your unemployment, how? Select all that apply. (Other)"
 IDK_CONTRIBUTE          ="Q3C. If you think AI or automation contributed to your unemployment, how? Select all that apply. (I don't think AI or automation contributed)"
 
 HIGHEST_EDUCATION       = "Q4. What is your highest level of education?"
@@ -71,7 +71,7 @@ MANUAL                  = "Q16. Which groups do you think are most likely to exp
 CREATIVE_WORKERS        = "Q16. Which groups do you think are most likely to experience job displacement as a result of AI and automation? . (Creative workers)"
 CUSTOMER_SERVICE        = "Q16. Which groups do you think are most likely to experience job displacement as a result of AI and automation? . (Customer service workers)"
 MANAGERS                = "Q16. Which groups do you think are most likely to experience job displacement as a result of AI and automation? . (Managers)"
-OTHER                   = "Q16. Which groups do you think are most likely to experience job displacement as a result of AI and automation? . (Other)"
+OTHER_DISPLACEMENT      = "Q16. Which groups do you think are most likely to experience job displacement as a result of AI and automation? . (Other)"
 IDK_DISPLACE            ="Q16. Which groups do you think are most likely to experience job displacement as a result of AI and automation? . (Don't know)"
 
 WAGES_HIGH_SKILL        = "Q17. What effect do you think AI and automation will have on the wages of highly skilled workers over the next 10 years?"
@@ -199,7 +199,7 @@ if __name__ == "__main__":
     # Old: 55–64, 65+
     df_young            = df[df[AGE].isin(["Under 18", "18–24", "25–34"])]
     df_middle_aged      = df[df[AGE].isin(["35–44", "45–54"])]
-    df_old              = df[df[AGE].isni(["55–64", "65+"])]
+    df_old              = df[df[AGE].isin(["55–64", "65+"])]
     
     
     
