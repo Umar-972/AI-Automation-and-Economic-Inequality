@@ -128,7 +128,7 @@ def seperate_dfs(df): # Creates different DFs
     
     full_time_employed          = df[EMPLOYMENT_STATUS] == "Full-time employee"
     part_time_employed          = df[EMPLOYMENT_STATUS] == "Part-time employee"
-    self_employed               = df[EMPLOYMENT_STATUS] == "Self-employed,"
+    self_employed               = df[EMPLOYMENT_STATUS] == "Self-employed"
     unemployed                  = df[EMPLOYMENT_STATUS] == "Unemployed and currently seeking work"
     students                    = df[EMPLOYMENT_STATUS] == "Student"
     retirees                    = df[EMPLOYMENT_STATUS] == "Retired"
